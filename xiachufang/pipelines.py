@@ -17,10 +17,10 @@ class WriteItemPipeline(object):
         # self.filename = 'xiachufang_beef.csv'
         # self.filename = 'xiachufang_lamb.csv'
         # self.filename = 'xiachufang_duck.csv'
-        # self.filename = 'xiachufang_fish.csv'
+        self.filename = 'xiachufang_fish.csv'
         # self.filename = 'xiachufang_shrimp.csv'
         # self.filename = 'xiachufang_egg.csv'
-        self.filename = 'xiachufang_tofu.csv'
+        # self.filename = 'xiachufang_tofu.csv'
 
     def open_spider(self, spider):
         self.csvfile = open(self.filename, 'wb')

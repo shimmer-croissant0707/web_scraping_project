@@ -20,13 +20,13 @@ class XiachufangSpider(Spider):
         #duck_list
         # category_list = [1190, 274, 115, 374, 533, 714, 2653, 4068, 271, 1081, 277, 1012232]
         #fish_list
-        # category_list = [5404, 5448, 523, 3042, 427, 5152]
+        category_list = [5404, 5448, 523, 3042, 427, 5152]
         #shrimp_list
         # category_list = [826, 875, 1053, 1191, 41, 2918, 5322, 76, 3362, 3402, 1002, 1024, 2714, 215, 1159, 1007968]
         #egg_list
         # category_list = [394, 441, 689, 292, 4389, 1007600]
         #tofu_list
-        category_list = [80, 1405, 177, 730, 947, 315, 5446, 1005208, 1000426]
+        # category_list = [80, 1405, 177, 730, 947, 315, 5446, 1005208, 1000426]
         category_page = []
         for category in category_list:
             for _ in range(num_pages):
