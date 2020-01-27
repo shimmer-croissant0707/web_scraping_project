@@ -1,1 +1,1 @@
-# web_scraping_project
+# NYCDSA Web Scraping Project
