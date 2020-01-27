@@ -8,9 +8,10 @@ class XiachufangSpider(Spider):
     start_urls = ['https://www.xiachufang.com/category/731/pop/']
 
     def parse(self, response):
+        # since the url for each ingredients under certain category are quite random, so following lists are created
         num_pages = 10
         #pork_list
-        # category_list = [731,227,792,1304,423,580,3297,733,5374,735,898,883,2618,2190,865,220,333,876,742,1003189]
+        category_list = [731,227,792,1304,423,580,3297,733,5374,735,898,883,2618,2190,865,220,333,876,742,1003189]
         #chicken_list
         # category_list = [1261,5391,1509,1337,1136,1222,1227,570,393,278,1131,3155,1127,738]
         #beef_list
@@ -20,14 +21,17 @@ class XiachufangSpider(Spider):
         #duck_list
         # category_list = [1190, 274, 115, 374, 533, 714, 2653, 4068, 271, 1081, 277, 1012232]
         #fish_list
-        category_list = [5404, 5448, 523, 3042, 427, 5152]
+        # category_list = [5404, 5448, 523, 3042, 427, 5152]
         #shrimp_list
         # category_list = [826, 875, 1053, 1191, 41, 2918, 5322, 76, 3362, 3402, 1002, 1024, 2714, 215, 1159, 1007968]
         #egg_list
         # category_list = [394, 441, 689, 292, 4389, 1007600]
         #tofu_list
         # category_list = [80, 1405, 177, 730, 947, 315, 5446, 1005208, 1000426]
+
+
         category_page = []
+        # create list of tuples to generate urls
         for category in category_list:
             for _ in range(num_pages):
                 category_page.append((category, _+1))
@@ -45,9 +49,11 @@ class XiachufangSpider(Spider):
         # This fucntion parses the search result page.
         
         # We are looking for url of the detail page.
+        # only the first 20 items using the xpath search are actual recipes we need
         recipes = response.xpath('//div[@class="info pure-u"]')[:20]
         for recipe in recipes:
             try:
+                # extract information we need to do the data analysis
                 title = recipe.xpath('.//p[@class="name"]/a/text()').extract()[0].strip()
                 ingredients = recipe.xpath('.//p[@class="ing ellipsis"]/a/text()').extract()
                 rating = recipe.xpath('.//p[@class="stats"]/span/text()').extract()[0]
@@ -68,10 +74,11 @@ class XiachufangSpider(Spider):
                 else:
                     master = False
 
-
             except:
                 continue
 
+
+            # store the values and yield the item
             item = XiachufangItem()
             item['title'] = title
             item['rating'] = rating

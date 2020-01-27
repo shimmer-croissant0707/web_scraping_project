@@ -12,12 +12,14 @@ from scrapy.exporters import CsvItemExporter
 class WriteItemPipeline(object):
 
     def __init__(self):
-        # self.filename = 'xiachufang_pork.csv'
+        # this csv file name changes accordingly with the category list provided in spiders/xiachufang_spider.py
+
+        self.filename = 'xiachufang_pork.csv'
         # self.filename = 'xiachufang_chicken.csv'
         # self.filename = 'xiachufang_beef.csv'
         # self.filename = 'xiachufang_lamb.csv'
         # self.filename = 'xiachufang_duck.csv'
-        self.filename = 'xiachufang_fish.csv'
+        # self.filename = 'xiachufang_fish.csv'
         # self.filename = 'xiachufang_shrimp.csv'
         # self.filename = 'xiachufang_egg.csv'
         # self.filename = 'xiachufang_tofu.csv'
