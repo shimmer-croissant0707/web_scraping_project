@@ -1,6 +1,8 @@
 # NYCDSA Web Scraping Project
 
-This is a web scraping project where I scraped the website xiachufang using Scrapy package. 
+This is a web scraping project where I scraped the website xiachufang using Scrapy package. \
+Scrapy codes contained in xiachufang folder.\
+Data analysis folder contains csv files and jupyter notebook file for processing and analyzing the data.\
 
 I mainly studied the following questions.
 
